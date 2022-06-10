@@ -1,11 +1,11 @@
     public static class Csv
     {
-        private static String[] SplitCsvLines(String csv, String lineSplitter)
+        //Works for lines and collumns
+        private static String[] CsvSplitter(String csv, String splitter)
         {
             List<String> csvLines = new List<String>();
 
-            int aux = lineSplitter.Length / 2;
-            int jump = lineSplitter.Length;
+            int jump = splitter.Length;
             int startPosition = 0;
             bool isInQuotes = false;
             for (int currentPosition = 0; currentPosition < csv.Length; currentPosition++)
@@ -17,13 +17,13 @@
                 {
                     isInQuotes = !isInQuotes;
                 }
-                else if (csv.Substring(currentPosition, jump).Equals(lineSplitter) && !isInQuotes)
+                else if (csv.Substring(currentPosition, jump).Equals(splitter) && !isInQuotes)
                 {
-                    csvLines.Add(csv.Substring(startPosition + aux, (currentPosition - aux) - startPosition));
-                    startPosition = currentPosition + 1;
+                    csvLines.Add(csv.Substring(startPosition, (currentPosition) - startPosition));
+                    startPosition = currentPosition + jump;
                 }
             }
-            
+
             csvLines.Add(csv.Substring(startPosition));
 
 
