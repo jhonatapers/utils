@@ -1,6 +1,5 @@
     public static class Csv
     {
-        //Works for lines and collumns
         private static String[] CsvSplitter(String csv, String splitter)
         {
             List<String> csvLines = new List<String>();
