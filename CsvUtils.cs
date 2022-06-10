@@ -23,6 +23,8 @@
                     startPosition = currentPosition + 1;
                 }
             }
+            
+            csvLines.Add(csv.Substring(startPosition));
 
 
             return csvLines.ToArray();
