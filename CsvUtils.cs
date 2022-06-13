@@ -137,7 +137,14 @@
                 }
                 else if (csvLine.Substring(currentPosition, jump).Equals(splitter) && !isInQuotes)
                 {
-                    csvColumns.Add(csvLine.Substring(startPosition, (currentPosition) - startPosition));
+                    if (csvLine[startPosition] == '\"' && csvLine[startPosition] == '\"')
+                    {
+                        csvColumns.Add(csvLine.Substring(startPosition + 1, ((currentPosition) - startPosition) - 2));
+                    }
+                    else
+                    {
+                        csvColumns.Add(csvLine.Substring(startPosition, (currentPosition) - startPosition));
+                    }
                     startPosition = currentPosition + jump;
                     currentPosition += jump -1;
                 }
