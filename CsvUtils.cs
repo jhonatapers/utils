@@ -8,17 +8,6 @@
             LF
         }
 
-        //
-        // Summary: Converte .csv para DataTable
-        // Parameters:
-        //   strFilePath: Caminho do arquivo .csv
-        //   containHeader: true = contain header false = not conteain header (cabecalho)
-        //   splitter: separador de colunas
-        //   lineSplitter:separador de linhas (normalmente \n\r)
-        //   replace: vetor de Strings que deseja remover
-        //   encoding: Encoding do texto
-        // Returns:
-        //     Retorna DataTable do arquivo .csv
         public static DataTable convertCSVtoDataTable(byte[] bFile, bool containHeader, string columnSplitter, lineSplitter lineSplitter, string[] replace, Encoding encoding)
         {
             Stopwatch timeSpend = new Stopwatch();
